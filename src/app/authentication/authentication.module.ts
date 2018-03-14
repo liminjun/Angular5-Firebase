@@ -9,6 +9,7 @@ import { UserService } from '../services/user.service';
 import {CommonModule} from '@angular/common';
 import {ErrorAlertComponent} from '../shared/error-alert/error-alert.component';
 import {PasswordEqualValidator} from '../utils/password-equal-validator.directive';
+import { LoginComponent } from './login/login.component';
 
 
 @NgModule({
@@ -18,6 +19,7 @@ import {PasswordEqualValidator} from '../utils/password-equal-validator.directiv
      AuthenticationRouting
   ],
   declarations: [
+    LoginComponent,
     SignupComponent,
     ErrorAlertComponent,
     PasswordEqualValidator
