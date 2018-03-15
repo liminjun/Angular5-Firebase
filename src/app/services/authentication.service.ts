@@ -26,4 +26,13 @@ export class AuthenticationService {
   public resetPassword(email:string):Promise<any>{
     return this.angularFireAuth.auth.sendPasswordResetEmail(email);
   }
+
+  public isAuthenticated():boolean{
+    const user=this.angularFireAuth.auth.currentUser;
+    return user?true:false;
+  }
+
+  public signout(){
+    return this.angularFireAuth.auth.signOut();
+  }
 }

@@ -20,7 +20,8 @@ export class LoginComponent implements OnInit {
     private userService: UserService,
     private router: Router,
     private authService: AuthenticationService,
-    private angularFireAuth: AngularFireAuth) {
+    private angularFireAuth: AngularFireAuth
+  ) {
       
     this.angularFireAuth.auth.onAuthStateChanged(user => {
       if (user) {
@@ -42,10 +43,13 @@ export class LoginComponent implements OnInit {
         this.showError = true;
       });
   }
-
+  private navigateToUserProfile(){
+    this.router.navigateByUrl('/profile');
+  }
   private getUserInfo(uid: string) {
     this.userService.getUser(uid).subscribe(snapshot => {
       this.user = snapshot;
+      this.navigateToUserProfile();
     });
   }
 

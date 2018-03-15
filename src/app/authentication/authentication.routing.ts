@@ -4,9 +4,11 @@ import {RouterModule, Routes} from '@angular/router';
 import {SignupComponent} from './signup/signup.component';
 import { LoginComponent } from './login/login.component';
 import { HomeComponent } from '../home/home.component';
+import { AboutComponent } from '../about/about.component';
+import { PageNotFoundComponent } from '../page-not-found/page-not-found.component';
 
 export const ROUTES: Routes = [
-    {path:"home",component:HomeComponent},
+   
    {path: 'login', component: LoginComponent},
    {path: 'signup', component: SignupComponent}
 ];

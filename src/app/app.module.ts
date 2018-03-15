@@ -12,11 +12,17 @@ import {AngularFireDatabase} from 'angularfire2/database';
 import {CommonModule} from '@angular/common';
 import {RouterModule} from '@angular/router';
 import { HomeComponent } from './home/home.component';
+import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
+import { AboutComponent } from './about/about.component';
+import { AppRouting } from './app.routing';
+import { UserModule } from './user/user.module';
 
 @NgModule({
   declarations: [
     AppComponent,
-    HomeComponent
+    HomeComponent,
+    PageNotFoundComponent,
+    AboutComponent
   ],
   imports: [
     CommonModule,
@@ -26,7 +32,9 @@ import { HomeComponent } from './home/home.component';
     AngularFireModule.initializeApp(environment.firebase),
     BrowserAnimationsModule,
     RouterModule.forRoot([]),
-    AuthenticationModule
+    AuthenticationModule,
+    AppRouting,
+    UserModule
   ],
   providers: [
     AngularFireAuth,
