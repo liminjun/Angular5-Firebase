@@ -49,6 +49,7 @@ export class LoginComponent implements OnInit {
   private getUserInfo(uid: string) {
     this.userService.getUser(uid).subscribe(snapshot => {
       this.user = snapshot;
+      this.userService.saveUser(this.user);
       this.navigateToUserProfile();
     });
   }

@@ -1,0 +1,25 @@
+<div class="main-container">
+  <div class="content-container">
+    <div *ngIf="isLeftVisible" (click)="onLeft()" class="left">
+      <img src="assets/images/left.png" alt="">
+    </div>
+    <div class="card list">
+        <div *ngFor="let friend of friends" class="card">
+            <img [src]="friend.safeImage" alt="Card image cap" class="card-img-top">
+            <div class="card-body">
+              <h4 class="card-title">{{friend.name}}</h4>
+              <p class="card-text">{{friend.email}}|{{friend.mobile}}</p>
+            </div>
+            <div class="card-footer">
+              <small class="text-muted">Friends from{{friend.time|friendsdate}}</small>
+            </div>
+          </div>
+    </div>
+    <div *ngIf="isRightVisible" (click)="onRight()" class="right">
+        <img src="assets/images/right.png" alt="">
+      </div>
+  </div>
+  <div *ngIf="!friends||friends.length===0" class="no-info-container">
+    <h1>No friends in your list.</h1>
+  </div>
+</div>
