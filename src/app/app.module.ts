@@ -16,6 +16,8 @@ import { PageNotFoundComponent } from './page-not-found/page-not-found.component
 import { AboutComponent } from './about/about.component';
 import { AppRouting } from './app.routing';
 import { UserModule } from './user/user.module';
+import { ChatModule } from './chat/chat.module';
+
 
 @NgModule({
   declarations: [
@@ -34,7 +36,8 @@ import { UserModule } from './user/user.module';
     RouterModule.forRoot([]),
     AuthenticationModule,
     AppRouting,
-    UserModule
+    UserModule,
+    ChatModule
   ],
   providers: [
     AngularFireAuth,

@@ -35,7 +35,7 @@ export class UserProfileComponent implements OnInit {
 
   ngOnInit() {
     this.user = this.userService.getSavedUser().getValue();
-    //this.profileImage=this.user.image;
+    this.profileImage=this.user.image;
   }
 
   onNameChange() {

@@ -59,6 +59,7 @@ export class UserService {
     .put(file).then(
       snapshot=>{
         const imageUrl:string=snapshot.downloadURL;
+
         this.fireDb.object(`${USERS_CHILD}/${user.uid}`)
         .update({image:imageUrl});
 
@@ -66,7 +67,9 @@ export class UserService {
         this.saveUser(user);
       }
     ).catch((error)=>{
-      console.log(error);
+      const errorMessage=error.message;
+
+      console.log(errorMessage);
     });
   }
 }
