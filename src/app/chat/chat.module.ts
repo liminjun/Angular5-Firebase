@@ -8,6 +8,7 @@ import {ChatMessageListComponent} from './chat-message-list/chat-message-list.co
 import {ChatMessageFormComponent} from './chat-message-form/chat-message-form.component';
 import {ChatComponent} from './chat.component';
 import {ChatRoutingModule} from './chat-routing.module';
+import { MessagingService } from '../services/messaging.service';
 
 /**
  * Chat Module
@@ -26,7 +27,8 @@ import {ChatRoutingModule} from './chat-routing.module';
         ChatComponent
     ],
     providers: [
-        UserService
+        UserService,
+        MessagingService
     ]
 })
 export class ChatModule {

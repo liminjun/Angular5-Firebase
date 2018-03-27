@@ -5,6 +5,7 @@ import { Friend } from '../../services/friend';
 import { User } from '../../services/user';
 import { DomSanitizer } from '@angular/platform-browser';
 import { forEach } from '@angular/router/src/utils/collection';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-user-friends',
@@ -25,20 +26,21 @@ export class UserFriendsComponent implements OnInit {
 
   constructor(private userService: UserService,
     private friendService: FriendService,
-    private sanitizer: DomSanitizer) { }
+    private sanitizer: DomSanitizer,
+    private router: Router) { }
 
   ngOnInit() {
     this.user = this.userService.getSavedUser().getValue();
     this.totalCount = this.user.friendcount;
-    var that=this;
+    var that = this;
     this.friendService.getFirstPage(this.user.uid, this.pageSize)
       .subscribe(friends => {
         this.friends = friends;
-        friends.forEach(function(item,index){
-          
-          item["safeImage"]=that.sanitizer.bypassSecurityTrustResourceUrl(item.image);
+        friends.forEach(function (item, index) {
+
+          item["safeImage"] = that.sanitizer.bypassSecurityTrustResourceUrl(item.image);
         });
-      
+
         let count: number = this.friends.length;
         this.currentCount = count;
         this.leftArrowVisible();
@@ -81,6 +83,10 @@ export class UserFriendsComponent implements OnInit {
   }
   rightArrowVisible(): void {
     this.isRightVisible = this.totalCount > this.currentCount;
+  }
+
+  onChat(id: string): void {
+    this.router.navigate(['/chat', id]);
   }
 
 

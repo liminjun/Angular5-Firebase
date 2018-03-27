@@ -9,6 +9,8 @@
             <div class="card-body">
               <h4 class="card-title">{{friend.name}}</h4>
               <p class="card-text">{{friend.email}}|{{friend.mobile}}</p>
+              
+              <button (click)="onChat(friend.uuid)" class="btn btn-outline-success my-2 my-sm-0" type="submit">Chat</button>
             </div>
             <div class="card-footer">
               <small class="text-muted">Friends from{{friend.time|friendsdate}}</small>
