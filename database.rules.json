@@ -1,6 +1,27 @@
 {
   "rules": {
     ".read": "auth != null",
-    ".write": "auth != null"
+    ".write": "auth != null",
+    "message_details": {
+      ".read": "auth!=null",
+      "$identifierKey": {
+        "$messageKey": {
+          ".write": "auth!=null&&newDate.exists()",
+          ".validate": "newDate.hasChildren(['message','receiverUid','senderUid','timestamp'])",
+          "message": {
+            ".validate": "newData.isString()"
+          },
+          "receiverUid": {
+            ".validate": "newData.isString()"
+          },
+          "senderUid": {
+            ".validate": "newData.isString()"
+          },
+          "timestamp": {
+            ".validate": "newData.isNumber()"
+          }
+        }
+      }
+    }
   }
 }
