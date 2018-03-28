@@ -1,24 +1,28 @@
-import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import {Component, OnDestroy, OnInit} from '@angular/core';
+import {ActivatedRoute} from '@angular/router';
 
 @Component({
-  selector: 'app-chat',
-  templateUrl: './chat.component.html',
-  styleUrls: ['./chat.component.scss']
+    selector: 'app-friends-chat',
+    styleUrls: ['chat.component.scss'],
+    templateUrl: 'chat.component.html',
 })
-export class ChatComponent implements OnInit {
-  uid:string;
-  private sub:any;
+export class ChatComponent implements OnInit, OnDestroy {
 
-  constructor(private route:ActivatedRoute) { }
+    uid: string;
 
-  ngOnInit() {
-    this.sub=this.route.params.subscribe(params=>{
-      this.uid=params["id"];
-    });
-  }
+    private sub: any;
 
-  ngOnDestroy(){
-    this.sub.unsubscribe();
-  }
+    constructor(private route: ActivatedRoute) {
+
+    }
+
+    ngOnInit() {
+        this.sub = this.route.params.subscribe(params => {
+            this.uid = params['id'];
+        });
+    }
+
+    ngOnDestroy() {
+        this.sub.unsubscribe();
+    }
 }

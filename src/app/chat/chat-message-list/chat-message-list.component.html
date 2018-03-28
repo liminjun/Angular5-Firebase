@@ -1,6 +1,7 @@
-<div class="col-md-8 col-md-offset-2">
-  <app-chat-message-list [friendUid]="uid">
-  </app-chat-message-list>
-  <app-chat-message-form [friendUid]="uid">
-  </app-chat-message-form>
+<div class="chat-message-list-main-container">
+    <div #scrollContainer class="message-list-container" id="messages">
+        <app-chat-message *ngFor="let message of messages;" [message]="message">
+        </app-chat-message>
+    </div>
 </div>
+

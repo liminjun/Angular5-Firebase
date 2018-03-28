@@ -1,32 +1,33 @@
 import {Component, Input, OnInit} from '@angular/core';
-import {MessagingService} from '../../services/messaging.service';
-import {Message} from '../../services/message';
 import {UserService} from '../../services/user.service';
+import {Message} from '../../services/message';
+import {MessagingService} from '../../services/messaging.service';
 
 @Component({
-   selector: 'app-chat-message-form',
-   styleUrls: ['chat-message-form.component.scss'],
-   templateUrl: 'chat-message-form.component.html'
+    selector: 'app-chat-message-form',
+    styleUrls: ['chat-message-form.component.scss'],
+    templateUrl: 'chat-message-form.component.html'
 })
 export class ChatMessageFormComponent implements OnInit {
-   @Input() friendUid: string;
+    @Input() friendUid: string;
 
-   uid: string;
+    uid: string;
 
-   newMessage: string;
+    newMessage: string;
 
-   constructor(private messageService: MessagingService,
-            private userService: UserService) {
-   }
+    constructor(private userService: UserService,
+                private messageService: MessagingService) {
+    }
 
-   ngOnInit() {
-      this.uid = this.userService.getSavedUser().getValue().uid;
-   }
+    ngOnInit() {
+        this.uid = this.userService.getSavedUser().getValue().uid;
+    }
 
-   sendMessage() {
-      const message: Message = new Message(this.newMessage, 
-      this.uid, this.friendUid, Date.now());
-      this.messageService.createNewMessage(message);
-   }
+    sendMessage() {
+        const message: Message = new Message(this.newMessage, this.uid, this.friendUid, Date.now());
+        this.messageService.createNewMessage(message);
+        this.newMessage=null;
+    }
+
 
 }

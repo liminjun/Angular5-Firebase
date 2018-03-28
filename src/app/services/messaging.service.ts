@@ -37,10 +37,8 @@ export class MessagingService {
 
   freshlyCreateChatIDEntry(uid: string, friendUid: string): string {
     const key = this.fireDb.createPushId();
-    this.fireDb.object(`${USER_DETAILS_CHILD}/
-    ${CHAT_MESSAGES_CHILD}/${uid}/${friendUid}`).set({key: key});
-    this.fireDb.object(`${USER_DETAILS_CHILD}/
-    ${CHAT_MESSAGES_CHILD}/${friendUid}/${uid}`).set({key: key});
+    this.fireDb.object(`${USER_DETAILS_CHILD}/${CHAT_MESSAGES_CHILD}/${uid}/${friendUid}`).set({key: key});
+    this.fireDb.object(`${USER_DETAILS_CHILD}/${CHAT_MESSAGES_CHILD}/${friendUid}/${uid}`).set({key: key});
     return key;
   }
 
