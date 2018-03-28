@@ -1,7 +1,8 @@
 # See http://help.github.com/ignore-files/ for more about ignoring files.
 
 # compiled output
-/dist
+# 方便在服务器上部署，dist文件也传入到GitHub中
+# /dist
 /dist-server
 /tmp
 /out-tsc
