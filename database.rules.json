@@ -6,8 +6,8 @@
       ".read": "auth!=null",
       "$identifierKey": {
         "$messageKey": {
-          ".write": "auth!=null&&newDate.exists()",
-          ".validate": "newDate.hasChildren(['message','receiverUid','senderUid','timestamp'])",
+          ".write": "auth!=null&&newData.exists()",
+          ".validate": "newData.hasChildren(['message','receiverUid','senderUid','timestamp'])",
           "message": {
             ".validate": "newData.isString()"
           },
