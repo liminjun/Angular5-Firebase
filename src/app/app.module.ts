@@ -17,6 +17,7 @@ import { AboutComponent } from './about/about.component';
 import { AppRouting } from './app.routing';
 import { UserModule } from './user/user.module';
 import { ChatModule } from './chat/chat.module';
+import { FcmMessagingService } from './services/fcm-messaging.service';
 
 
 @NgModule({
@@ -42,6 +43,7 @@ import { ChatModule } from './chat/chat.module';
   providers: [
     AngularFireAuth,
     AngularFireDatabase,
+    FcmMessagingService
   ],
   bootstrap: [AppComponent]
 })

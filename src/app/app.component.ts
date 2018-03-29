@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { AuthenticationService } from './services/authentication.service';
+import { FcmMessagingService } from './services/fcm-messaging.service';
 
 @Component({
   selector: 'app-root',
@@ -9,8 +10,11 @@ import { AuthenticationService } from './services/authentication.service';
 export class AppComponent {
   title = 'app';
   authenticationService: AuthenticationService;
-  
-  constructor(private authService:AuthenticationService){
-    this.authenticationService=authService;
+
+  constructor(private authService: AuthenticationService,
+    // private friendsSearchService: FriendsSearchService,
+    private fcmService: FcmMessagingService) {
+    this.authenticationService = authService;
+
   }
 }
